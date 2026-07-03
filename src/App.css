@@ -1,0 +1,322 @@
+:root {
+  --color-primario: #4f46e5;
+  --color-primario-oscuro: #4338ca;
+  --color-peligro: #dc2626;
+  --color-fondo: #f4f5fb;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1f2937;
+  --color-texto-suave: #6b7280;
+  --color-borde: #e5e7eb;
+  --radio: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.app-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+@media (min-width: 801px) {
+  .app-header {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.app-header h1 {
+  margin-bottom: 4px;
+  font-size: 1.8rem;
+}
+
+.app-header p {
+  margin-top: 0;
+  color: var(--color-texto-suave);
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 1000px) {
+  .app-main {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 22px;
+  box-shadow: 0 6px 18px rgba(31, 41, 55, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-width: 0;
+  margin-top: 10px;
+}
+
+.tarjeta:hover {
+  transform: translateY(2px);
+  box-shadow: 0 10px 30px rgba(31, 41, 55, 0.06);
+}
+
+.formulario h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.campo input,
+.campo select {
+  padding: 9px 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--color-primario);
+}
+
+.error {
+  color: var(--color-peligro);
+  font-size: 0.8rem;
+}
+
+.boton {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+}
+
+.boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.boton-primario {
+  background: var(--color-primario);
+  color: white;
+  width: 100%;
+}
+
+.boton-primario:hover:not(:disabled) {
+  background: var(--color-primario-oscuro);
+}
+
+.boton-secundario {
+  background: #eef2ff;
+  color: var(--color-primario-oscuro);
+}
+
+.boton-secundario:hover:not(:disabled) {
+  background: #e0e7ff;
+}
+
+.boton-peligro {
+  background: #fef2f2;
+  color: var(--color-peligro);
+}
+
+.boton-peligro:hover {
+  background: #fee2e2;
+}
+
+.boton-texto {
+  background: transparent;
+  color: var(--color-primario);
+  padding: 8px 4px;
+}
+
+.boton-texto:hover {
+  text-decoration: underline;
+}
+
+.boton-icono {
+  background: transparent;
+  color: var(--color-texto-suave);
+  padding: 4px 8px;
+  font-size: 0.9rem;
+}
+
+.boton-icono:hover {
+  color: var(--color-peligro);
+}
+
+.mensaje-vacio {
+  color: var(--color-texto-suave);
+  text-align: center;
+  padding: 40px 0;
+}
+
+.banner-error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fef2f2;
+  color: var(--color-peligro);
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.banner-error button {
+  background: transparent;
+  border: none;
+  color: var(--color-peligro);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.lista-contactos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 18px;
+}
+
+.contacto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.contacto-header h3 {
+  margin: 0;
+}
+
+.contador-datos {
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+}
+
+.lista-datos {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dato-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  flex-wrap: wrap;
+}
+
+.dato-icono {
+  font-size: 1.1rem;
+}
+
+.dato-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.dato-tipo {
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.dato-valor {
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.formulario-dato {
+  border-top: 1px dashed var(--color-borde);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.fila-campos {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.9fr) minmax(180px, 1.4fr) minmax(240px, 6fr);
+  gap: 12px;
+}
+
+.fila-campos .campo:nth-child(2) {
+  min-width: 180px;
+}
+
+/* El formulario no tiene reglas sticky en esta versión */
+
+@media (max-width: 600px) {
+  .fila-campos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Apilar campos antes para dar más ancho al input 'Valor' en pantallas medianas */
+@media (max-width: 900px) {
+  .fila-campos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.campo-valor {
+  min-width: 0;
+}
+
+.acciones-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
